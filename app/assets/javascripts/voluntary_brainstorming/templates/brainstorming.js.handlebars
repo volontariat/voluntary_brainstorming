@@ -1,0 +1,9 @@
+<h2>
+  {{model.name}} 
+  {{#link-to 'edit_brainstorming' model.user_slug model.slug}}
+    <span class="glyphicon glyphicon-pencil"></span>
+  {{/link-to}}
+  <a {{action 'destroy' model.user_slug model.slug}}>
+    <span class="glyphicon glyphicon-remove"></span>
+  </a>
+</h2>

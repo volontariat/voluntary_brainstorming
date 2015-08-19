@@ -1,0 +1,28 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <a id="plattform_brand" class="navbar-brand" href="/">Volontari.at /</a>
+    <a id="product_brand" class="navbar-brand" href="#">Brainstorming</a>
+    
+    <ul class="navbar-nav nav">
+{{#if currentUser}}
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Account
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          {{#link-to 'user_brainstormings' currentUser.slug 1 tagName='li'}}<a>Your brainstormings</a>{{/link-to}}
+          <li>
+            <a {{action 'signOut'}}>Sign out</a>
+          </li>
+        </ul>
+      </li>
+{{else}}
+      <li>
+        <a href="/users/sign_in">Authentication</a>
+      </li>
+{{/if}}    
+      <li><a href="http://GitHub.com/Volontariat/voluntary_brainstorming/issues">Issues</a></li>    
+    </ul>
+  </div>
+</div>

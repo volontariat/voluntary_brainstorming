@@ -1,0 +1,33 @@
+<h2>{{name-with-apostrophe userName}} Brainstormings</h2>
+
+{{#if anyBrainstormings}}
+<table class="table table-striped" style="margin-top:15px;">
+  <tbody>
+  {{#each brainstormings as |brainstorming|}}
+    <tr>
+      <td>
+        {{#link-to 'brainstorming' brainstorming.user_slug brainstorming.slug}}{{brainstorming.name}}{{/link-to}}
+      </td>
+      <td>
+        {{#link-to 'edit_brainstorming' brainstorming.user_slug brainstorming.slug}}
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        {{/link-to}}
+         | 
+        <a {{action 'destroy' brainstorming.user_slug brainstorming.slug}} class="remove_brainstorming_link">
+          <span class="glyphicon glyphicon-remove"></span> Remove
+        </a>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+{{else}}
+  No brainstormings found.
+{{/if}}
+
+{{partial 'shared/pagination'}}
+
+{{#link-to 'new_brainstorming' userSlug}}
+  <span class="glyphicon glyphicon-plus"></span> 
+  New Brainstorming
+{{/link-to}}
