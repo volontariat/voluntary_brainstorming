@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'voluntary', github: 'volontariat/voluntary'
-gem 'voluntary-ember_js', github: 'volontariat/voluntary-ember_js' # '0.0.1'
+gem 'voluntary-ember_js', github: 'volontariat/voluntary-ember_js'
 
 # core
 gem 'rack-cors', '~> 0.2.4', require: 'rack/cors'

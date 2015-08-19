@@ -8,25 +8,21 @@ GIT
       rdiscount
 
 GIT
-  remote: https://github.com/binarylogic/settingslogic.git
-  revision: 0ae134bc6b93463bb0bc406e5b0df82ed07fc53f
+  remote: git://github.com/volontariat/voluntary-ember_js.git
+  revision: 6ae16659bf6d3ad0e7e23277ee675f1f0da03ab3
   specs:
-    settingslogic (2.0.9)
+    voluntary-ember_js (0.0.1)
+      ember-data-source (= 1.13.8)
+      ember-rails (~> 0.19.0)
+      ember-source (= 1.13.8)
+      voluntary (~> 0.5.0)
 
 GIT
-  remote: https://github.com/pivotal/jasmine-gem.git
-  revision: 869cae76cf1a755e45531998d7a150bfcd37da69
-  specs:
-    jasmine (2.3.0)
-      jasmine-core (~> 2.3)
-      phantomjs
-      rack (>= 1.2.1)
-      rake
-
-PATH
-  remote: ../../voluntary
+  remote: git://github.com/volontariat/voluntary.git
+  revision: 788512370957add6c92633c0a77a7b407529fcb8
   specs:
     voluntary (0.5.0)
+      active_model_serializers (~> 0.9.3)
       activerecord-deprecated_finders (~> 1.0.3)
       activerecord-import (~> 0.4.1)
       acts-as-taggable-on (~> 2.4.1)
@@ -92,15 +88,21 @@ PATH
       will_paginate_mongoid (~> 2.0.1)
       zip-zip (~> 0.2)
 
-PATH
-  remote: ../../voluntary-ember_js
+GIT
+  remote: https://github.com/binarylogic/settingslogic.git
+  revision: 0ae134bc6b93463bb0bc406e5b0df82ed07fc53f
   specs:
-    voluntary-ember_js (0.0.1)
-      active_model_serializers (~> 0.9.3)
-      ember-data-source (= 1.13.8)
-      ember-rails (~> 0.19.0)
-      ember-source (= 1.13.8)
-      voluntary (~> 0.5.0)
+    settingslogic (2.0.9)
+
+GIT
+  remote: https://github.com/pivotal/jasmine-gem.git
+  revision: 869cae76cf1a755e45531998d7a150bfcd37da69
+  specs:
+    jasmine (2.3.0)
+      jasmine-core (~> 2.3)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
 
 PATH
   remote: /Users/gawlim/workspace/voluntary/voluntary_brainstorming
@@ -109,8 +111,6 @@ PATH
       voluntary (~> 0.5.0)
 
 GEM
-  remote: http://gems.github.com/
-  remote: http://rubygems.org/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.2.3)
