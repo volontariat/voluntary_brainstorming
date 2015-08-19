@@ -16,4 +16,4 @@ script:
   - RAILS_ENV=test bundle exec rake db:create
   - bundle exec rake db:test:prepare
   - CODECLIMATE_REPO_TOKEN=f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1 bundle exec rspec
-  - CODECLIMATE_REPO_TOKEN=f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1 JAVASCRIPT_DRIVER=chrome bundle exec cucumber
+  - CODECLIMATE_REPO_TOKEN=f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1 bundle exec cucumber
