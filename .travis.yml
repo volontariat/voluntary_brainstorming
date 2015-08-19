@@ -1,0 +1,19 @@
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+language: ruby  
+rvm:
+  - "2.2.0"
+services:
+  - mongodb
+addons:
+  code_climate:
+    repo_token: f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1
+script:
+  - cd dummy
+  - ln -s ../.git .git
+  - cp config/database.travis.yml config/database.yml
+  - RAILS_ENV=test bundle exec rake db:create
+  - bundle exec rake db:test:prepare
+  - CODECLIMATE_REPO_TOKEN=f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1 bundle exec rspec
+  - CODECLIMATE_REPO_TOKEN=f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1 JAVASCRIPT_DRIVER=chrome bundle exec cucumber
