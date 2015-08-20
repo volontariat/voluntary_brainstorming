@@ -1,3 +1,3 @@
 When /^delete the first brainstorming$/ do
-  page.evaluate_script("$('.remove_brainstorming_link')[0].click();")
+  find(:xpath, '(//a[@class="remove_brainstorming_link"])[1]').click
 end
