@@ -1,7 +1,8 @@
 #= require_tree ./mixins
-#= require_tree ./models
 #= require_tree ./controllers
-#= require_tree ./templates
+#= require_tree ./models
 #= require ./router.js.coffee
 #= require_tree ./routes
+#= require_tree ./components
+#= require_tree ./templates
 #= require_self

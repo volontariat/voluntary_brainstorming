@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        brainstorming_idea:
+          attributes:
+            base: 
+              deletion_failed: Brainstorming idea could not be deleted!

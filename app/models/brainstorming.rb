@@ -3,7 +3,7 @@ class Brainstorming < ActiveRecord::Base
   
   belongs_to :user
   
-  has_many :ideas, class_name: 'BrainstormIdea'
+  has_many :ideas, class_name: 'BrainstormingIdea', dependent: :destroy
   
   friendly_id :name, use: :scoped, scope: :user
   

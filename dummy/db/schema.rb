@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150818182044) do
     t.integer  "brainstorming_id", limit: 4
     t.integer  "user_id",          limit: 4
     t.string   "name",             limit: 255
-    t.string   "text",             limit: 255
+    t.text     "text",             limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150818182044) do
     t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 255
     t.string   "slug",       limit: 255
-    t.string   "text",       limit: 255
+    t.text     "text",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end

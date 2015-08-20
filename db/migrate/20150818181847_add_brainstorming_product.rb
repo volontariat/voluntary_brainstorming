@@ -9,7 +9,7 @@ class AddBrainstormingProduct < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.string :slug
-      t.string :text
+      t.text :text
       t.timestamps
     end
     
@@ -20,7 +20,7 @@ class AddBrainstormingProduct < ActiveRecord::Migration
       t.integer :brainstorming_id
       t.integer :user_id
       t.string :name
-      t.string :text
+      t.text :text
       t.timestamps
     end
     
