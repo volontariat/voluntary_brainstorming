@@ -7,13 +7,12 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
         url: '/api/v1/brainstormings' + if @get('slug') then "/#{@get('slug')}" else '', 
         data: { brainstorming: { name: $('#brainstorming_name').val(), text: $('#brainstorming_text').val() } }
       ).success((data) =>
-        @transitionToRoute 'brainstorming', @get('userSlug'), data.brainstorming.slug
-
         if data.errors
-          alert "Something went wrong at saving brainstorming: #{JSON.stringify(data.errors)}"
+          Volontariat.alert 'danger', "Something went wrong at saving brainstorming: #{JSON.stringify(data.errors)}"
         else
-          alert 'Successfully saved brainstorming.'
+          @transitionToRoute 'brainstorming', @get('userSlug'), data.brainstorming.slug
+          Volontariat.alert 'success', 'Successfully saved brainstorming.'
       ).fail((data) =>
-        alert "Something went wrong at saving brainstorming!"
+        Volontariat.alert 'danger', "Something went wrong at saving brainstorming!"
       )
 )

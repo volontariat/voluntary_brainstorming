@@ -4,7 +4,7 @@ Volontariat.EditBrainstormingRoute = Ember.Route.extend
   model: (params) ->
     if Volontariat.User.current() == undefined || params.user_slug != Volontariat.User.current().slug
       @transitionTo 'index'
-      alert 'Access denied!'
+      Volontariat.alert 'danger', 'Access denied!'
     else
       @controllerFor('brainstorming').set 'userSlug', params.user_slug
       @controllerFor('brainstorming').set 'slug', params.slug
