@@ -16,7 +16,6 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
      
-    # authentication
     when /^the sign in page$/
       new_user_session_path
       
@@ -25,6 +24,9 @@ module NavigationHelpers
       
     when /the user brainstormings page/
       "/products/brainstorming#/users/#{(@user || User.last).slug}/brainstormings/page/1"  
+      
+    when /the brainstorming page/
+      "/products/brainstorming#/users/#{(@user || User.last).slug}/brainstormings/#{@brainstorming.slug}"  
       
     when /the brainstorming edit page/
       "/products/brainstorming#/users/#{(@user || User.last).slug}/brainstormings/#{(@brainstorming || Brainstorming.last).slug}/edit"

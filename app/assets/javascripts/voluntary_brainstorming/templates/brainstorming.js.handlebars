@@ -17,11 +17,11 @@
         {{brainstorming-idea-cell selectedId=ideaId ideaId=idea.id ideaName=idea.name ideaText=idea.text leaveEditIdeaModeAction='leaveEditIdeaMode' reloadAction='reload'}}
       </td>
       <td>
-        <a {{action 'editIdea' idea.id}}>
+        <a {{action 'editIdea' idea.id}} class="edit_brainstorming_idea_link">
           <span class="glyphicon glyphicon-pencil"></span> Edit
         </a>
          | 
-        <a {{action 'destroyIdea' idea.id idea.user_id}} class="remove_idea_link">
+        <a {{action 'destroyIdea' idea.id idea.user_id}} class="remove_brainstorming_idea_link">
           <span class="glyphicon glyphicon-remove"></span> Remove
         </a>
       </td>
@@ -44,4 +44,4 @@
   </tbody>
 </table>
 
-<a {{action 'newIdea'}}><span class="glyphicon glyphicon-plus"></span> New Idea</a>
+<a class="new_brainstorming_idea_link" {{action 'newIdea'}}><span class="glyphicon glyphicon-plus"></span> New Idea</a>

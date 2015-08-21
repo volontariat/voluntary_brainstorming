@@ -16,4 +16,9 @@ end
 
 FactoryGirl.define do
   Voluntary::Test::RspecHelpers::Factories.code.call(self)
+  
+  factory :brainstorming do
+    association :user
+    sequence(:name) { |n| "topic #{n}" }
+  end
 end
