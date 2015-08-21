@@ -9,10 +9,18 @@
 </h2>
 
 <table class="table table-striped" style="margin-top:15px;">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Idea</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
 {{#if anyIdeas}}
   {{#each ideas as |idea|}}
     <tr>
+      <td>{{#link-to 'user_brainstormings' idea.user_slug 1}}{{idea.user_name}}{{/link-to}}</td>
       <td>
         {{brainstorming-idea-cell selectedId=ideaId ideaId=idea.id ideaName=idea.name ideaText=idea.text leaveEditIdeaModeAction='leaveEditIdeaMode' reloadAction='reload'}}
       </td>

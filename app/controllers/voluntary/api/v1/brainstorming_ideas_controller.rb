@@ -6,7 +6,7 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
   def index
     user = User.friendly.find params[:user_slug]
     respond_with do |format|
-      format.json { render json: user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas }
+      format.json { render json: user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas.includes(:user) }
     end
   end
   
