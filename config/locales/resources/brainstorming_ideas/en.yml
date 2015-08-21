@@ -1,4 +1,14 @@
 en:
+  brainstorming_ideas:
+    index:
+      empty_collection: No ideas found.
+    new:
+      title: New Idea
+    create:
+      title: Create Idea
+    update:
+      title: Update Idea
+        
   activerecord:
     errors:
       models:
@@ -6,3 +16,7 @@ en:
           attributes:
             base: 
               deletion_failed: Brainstorming idea could not be deleted!
+              
+    models:
+      brainstorming_idea: Brainstorming Idea
+      brainstorming_idea_short: Idea

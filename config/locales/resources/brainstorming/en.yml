@@ -1,4 +1,18 @@
 en:
+  brainstormings:
+    index:
+      title: Brainstormings
+      your: Your brainstormings
+      empty_collection: No brainstormings found.
+    new:
+      title: New Brainstorming
+    edit:
+      title: Edit Brainstorming
+    create:
+      title: Create Brainstorming
+    update:
+      title: Update Brainstorming
+      
   activerecord:
     errors:
       models:

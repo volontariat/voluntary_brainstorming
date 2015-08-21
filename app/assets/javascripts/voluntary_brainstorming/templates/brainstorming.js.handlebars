@@ -11,8 +11,8 @@
 <table class="table table-striped" style="margin-top:15px;">
   <thead>
     <tr>
-      <th>Author</th>
-      <th>Idea</th>
+      <th>{{t 'general.author'}}</th>
+      <th>{{t 'activerecord.models.brainstorming_idea_short' }}</th>
       <th></th>
     </tr>
   </thead>
@@ -26,18 +26,18 @@
       </td>
       <td>
         <a {{action 'editIdea' idea.id}} class="edit_brainstorming_idea_link">
-          <span class="glyphicon glyphicon-pencil"></span> Edit
+          <span class="glyphicon glyphicon-pencil"></span> {{t 'general.edit'}}
         </a>
          | 
         <a {{action 'destroyIdea' idea.id idea.user_id}} class="remove_brainstorming_idea_link">
-          <span class="glyphicon glyphicon-remove"></span> Remove
+          <span class="glyphicon glyphicon-remove"></span> {{t 'general.remove'}}
         </a>
       </td>
     </tr>
   {{/each}}
 {{else}}
     <tr>
-      <td colspan="2">No ideas found.</td>
+      <td colspan="2">{{t 'brainstormings.index.empty_collection'}}</td>
     </tr>
 {{/if}}
 {{#if newIdeaMode}}
@@ -52,4 +52,4 @@
   </tbody>
 </table>
 
-<a class="new_brainstorming_idea_link" {{action 'newIdea'}}><span class="glyphicon glyphicon-plus"></span> New Idea</a>
+<a class="new_brainstorming_idea_link" {{action 'newIdea'}}><span class="glyphicon glyphicon-plus"></span> {{t 'brainstorming_ideas.new.title' }}</a>

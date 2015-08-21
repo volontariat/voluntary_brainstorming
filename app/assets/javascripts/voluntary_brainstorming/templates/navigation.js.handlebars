@@ -7,22 +7,22 @@
 {{#if currentUser}}
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Account
+          {{t 'general.account'}}
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          {{#link-to 'user_brainstormings' currentUser.slug 1 tagName='li'}}<a>Your brainstormings</a>{{/link-to}}
+          {{#link-to 'user_brainstormings' currentUser.slug 1 tagName='li'}}<a>{{t 'brainstormings.index.your'}}</a>{{/link-to}}
           <li>
-            <a {{action 'signOut'}}>Sign out</a>
+            <a {{action 'signOut'}}>{{t 'general.sign_out'}}</a>
           </li>
         </ul>
       </li>
 {{else}}
       <li>
-        <a href="/users/sign_in">Authentication</a>
+        <a href="/users/sign_in">{{t 'general.authentication'}}</a>
       </li>
 {{/if}}    
-      <li><a href="http://GitHub.com/Volontariat/voluntary_brainstorming/issues">Issues</a></li>    
+      <li><a href="http://GitHub.com/Volontariat/voluntary_brainstorming/issues">{{t 'general.issues' }}</a></li>    
     </ul>
   </div>
 </div>

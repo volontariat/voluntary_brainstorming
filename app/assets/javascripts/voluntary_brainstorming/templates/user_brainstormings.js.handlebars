@@ -1,4 +1,4 @@
-<h2>{{name-with-apostrophe userName}} Brainstormings</h2>
+<h2>{{name-with-apostrophe userName}} {{t 'brainstormings.index.title'}}</h2>
 
 {{#if anyBrainstormings}}
 <table class="table table-striped" style="margin-top:15px;">
@@ -10,11 +10,11 @@
       </td>
       <td>
         {{#link-to 'edit_brainstorming' brainstorming.user_slug brainstorming.slug}}
-          <span class="glyphicon glyphicon-pencil"></span> Edit
+          <span class="glyphicon glyphicon-pencil"></span> {{t 'general.edit'}}
         {{/link-to}}
          | 
         <a {{action 'destroy' brainstorming.user_slug brainstorming.slug}} class="remove_brainstorming_link">
-          <span class="glyphicon glyphicon-remove"></span> Remove
+          <span class="glyphicon glyphicon-remove"></span> {{t 'general.remove'}}
         </a>
       </td>
     </tr>
@@ -22,12 +22,12 @@
   </tbody>
 </table>
 {{else}}
-  No brainstormings found.
+  {{t 'brainstormings.index.empty_collection'}}
 {{/if}}
 
 {{partial 'shared/pagination'}}
 
 {{#link-to 'new_brainstorming' userSlug}}
   <span class="glyphicon glyphicon-plus"></span> 
-  New Brainstorming
+  {{t 'brainstormings.new.title'}}
 {{/link-to}}
