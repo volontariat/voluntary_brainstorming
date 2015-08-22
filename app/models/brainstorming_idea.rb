@@ -10,4 +10,19 @@ class BrainstormingIdea < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :brainstorming_id }
   
   attr_accessible :brainstorming_id, :name, :text
+  
+  attr_accessor :host
+  
+  after_save :publish
+  
+  private
+  
+  def publish
+    uri = URI.parse("http://#{FAYE_HOST[Rails.env.to_s.to_sym]}/faye")
+    message = { 
+      channel: "/brainstormings/#{brainstorming.slug}", data: { brainstorming: to_json },
+      ext: { auth_token: FAYE_TOKEN }
+    }
+    Net::HTTP.post_form(uri, message: message.to_json)
+  end
 end

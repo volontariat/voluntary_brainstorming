@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'voluntary', '~> 0.5.0'
 
+  s.add_dependency 'faye', '~> 1.1.2'
+
   # group :development
   
   s.add_development_dependency 'letter_opener', '~> 1.0.0'

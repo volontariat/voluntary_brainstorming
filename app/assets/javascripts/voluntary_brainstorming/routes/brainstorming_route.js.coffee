@@ -1,5 +1,10 @@
 Volontariat.BrainstormingRoute = Ember.Route.extend
   model: (params) ->
+    faye = new Faye.Client("http://localhost:9292/faye")
+    
+    faye.subscribe "/brainstormings/#{params.slug}", (data) ->
+      alert JSON.stringify(data)
+    
     @controllerFor('brainstorming').set 'slug', params.slug
     @controllerFor('brainstorming').set 'userSlug', params.user_slug
     @controllerFor('brainstorming').set 'ideaId', null

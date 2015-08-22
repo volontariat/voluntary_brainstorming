@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec path: File.expand_path(File.dirname(__FILE__) + '/../')
 
-gem 'voluntary', github: 'volontariat/voluntary'
+gem 'voluntary', path: '../../voluntary'#github: 'volontariat/voluntary'
 gem 'voluntary-ember_js', github: 'volontariat/voluntary-ember_js'
 
 # core
