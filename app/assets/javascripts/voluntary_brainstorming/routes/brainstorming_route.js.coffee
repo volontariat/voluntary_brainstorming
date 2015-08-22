@@ -1,5 +1,8 @@
 Volontariat.BrainstormingRoute = Ember.Route.extend
   model: (params) ->
+    MessageBus.subscribe "/brainstormings/#{params.slug}", (data) ->
+      alert data
+  
     @controllerFor('brainstorming').set 'slug', params.slug
     @controllerFor('brainstorming').set 'userSlug', params.user_slug
     @controllerFor('brainstorming').set 'ideaId', null

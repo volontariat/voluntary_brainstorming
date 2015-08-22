@@ -10,4 +10,12 @@ class BrainstormingIdea < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :brainstorming_id }
   
   attr_accessible :brainstorming_id, :name, :text
+  
+  after_save :publish
+  
+  private
+  
+  def publish
+    MessageBus.publish("/brainstormings/#{brainstorming.slug}", to_json)
+  end
 end
