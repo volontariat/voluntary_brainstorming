@@ -1,3 +1,7 @@
+Given /^a brainstorming idea$/ do
+  @idea = FactoryGirl.create(:brainstorming_idea, brainstorming: @brainstorming, user: @me)
+end
+
 When /^I click the new idea link$/ do
   find(:xpath, '(//a[@class="new_brainstorming_idea_link"])[1]').click
 end

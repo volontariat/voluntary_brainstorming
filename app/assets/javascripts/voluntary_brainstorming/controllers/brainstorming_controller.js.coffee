@@ -1,5 +1,5 @@
 Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.DestroyBrainstorming,
-  ideas: [], newIdeaMode: false,
+  ideas: [], newIdeaMode: false, newArgumentIdeaId: null, argumentId: null
   
   anyIdeas: (-> @get('ideas').length > 0).property('ideas')
   
@@ -33,16 +33,37 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
       
     leaveEditIdeaMode: ->
       @set 'ideaId', null
+ 
+    newArgument: (ideaId) ->
+      @set 'newArgumentIdeaId', ideaId
+      @set 'argumentId', null
+      
+    editArgument: (id, pro, contra, neutral) ->
+      @set 'newArgumentIdeaId', null 
+      @set 'argumentId', id 
+      
+      setTimeout (->
+        if pro
+          $('input[name="argument[vote]"][value="1"]').click()
+        else if contra
+          $('input[name="argument[vote]"][value="0"]').click()
+        else if neutral
+          $('input[name="argument[vote]"][value=""]').click()
+      ), 100
+      
+    leaveComposeArgumentMode: ->
+      @set 'newArgumentIdeaId', null
+      @set 'argumentId', null
       
     destroyIdea: (ideaId, userId)  ->
       if Volontariat.User.current() == undefined || userId != Volontariat.User.current().id
-        @transitionToRoute 'index'
-        Volontariat.alert 'danger', 'Access denied!'
+        alert 'Access denied!'
       else
         $.ajax("/api/v1/brainstorming_ideas/#{ideaId}", type: 'DELETE').done((data) =>
           @send 'reload'
+          alert 'Successfully removed idea.'
         ).fail((data) ->
-          Volontariat.alert 'danger', 'Removing item failed!'
+          alert 'Removing idea failed!'
         )  
       
     reload: ->

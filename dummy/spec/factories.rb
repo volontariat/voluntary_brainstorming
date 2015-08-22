@@ -21,4 +21,10 @@ FactoryGirl.define do
     association :user
     sequence(:name) { |n| "topic #{n}" }
   end
+  
+  factory :brainstorming_idea do
+    association :brainstorming
+    association :user
+    sequence(:name) { |n| "topic #{n}" }
+  end
 end

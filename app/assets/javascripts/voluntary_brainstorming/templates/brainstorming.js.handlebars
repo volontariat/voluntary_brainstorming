@@ -14,6 +14,7 @@
       <th>{{t 'general.author'}}</th>
       <th>{{t 'activerecord.models.brainstorming_idea_short' }}</th>
       <th></th>
+      <th>{{t 'arguments.index.title' }}</th>
     </tr>
   </thead>
   <tbody>
@@ -32,6 +33,16 @@
         <a {{action 'destroyIdea' idea.id idea.user_id}} class="remove_brainstorming_idea_link">
           <span class="glyphicon glyphicon-remove"></span> {{t 'general.remove'}}
         </a>
+      </td>
+      <td>
+        <table class="table">
+          <tbody>
+    {{#each idea.arguments as |argument|}}
+            {{brainstorming-idea-argument argument=argument.argument selectedId=argumentId id=argument.argument.id ideaId=idea.id topicName=argument.argument.topic_name value=argument.argument.value editAction='editArgument' leaveComposeArgumentModeAction='leaveComposeArgumentMode' reloadAction='reload'}}
+    {{/each}}        
+            {{brainstorming-idea-argument selectedNewArgumentIdeaId=newArgumentIdeaId ideaId=idea.id newAction="newArgument" leaveComposeArgumentModeAction='leaveComposeArgumentMode' reloadAction='reload'}}
+          </tbody>
+        </table>
       </td>
     </tr>
   {{/each}}
