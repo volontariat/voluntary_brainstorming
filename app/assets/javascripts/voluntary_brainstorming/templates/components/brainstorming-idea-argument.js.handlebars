@@ -26,7 +26,7 @@
       <label class="string optional control-label control-label" for="argument_topic_name">
         {{t 'activerecord.models.argument_topic_short'}}
       </label>
-      {{input value=topicName class="string optional form-control" type="text" name="argument[topic_name]" id="argument_topic_name"}}
+      {{input value=topicName class="string optional form-control" type="text" name="argument[topic_name]" id="argument_topic_name" data-autocomplete="/api/v1/argument_topics/autocomplete"}}
     </div>
     <div class="form-group string optional argument_value">
       <label class="string optional control-label control-label" for="argument_value">
