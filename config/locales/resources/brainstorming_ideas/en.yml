@@ -4,6 +4,9 @@ en:
       empty_collection: No ideas found.
     new:
       title: New Idea
+    save:
+      failed: Something went wrong at saving idea
+      successful: Successfully saved idea.
     create:
       title: Create Idea
     update:

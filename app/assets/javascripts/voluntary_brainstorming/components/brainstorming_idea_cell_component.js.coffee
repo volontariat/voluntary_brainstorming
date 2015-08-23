@@ -20,7 +20,7 @@ Volontariat.BrainstormingIdeaCellComponent = Ember.Component.extend
         }
       ).success((data) =>
         if data.errors
-          Volontariat.alert 'danger', "Something went wrong at saving idea: #{JSON.stringify(data.errors)}"
+          alert "#{Volontariat.t('brainstorming_ideas.save.failed')}: #{JSON.stringify(data.errors)}"
         else
           unless @get('ideaId')
             @sendAction 'leaveNewIdeaModeAction'
@@ -28,7 +28,7 @@ Volontariat.BrainstormingIdeaCellComponent = Ember.Component.extend
             @set 'ideaText', ''
           
           @sendAction 'reloadAction'
-          Volontariat.alert 'success', 'Successfully saved idea.'
+          alert Volontariat.t('brainstorming_ideas.save.successful')
       ).fail((data) =>
-        Volontariat.alert 'danger', "Something went wrong at saving idea!"
+        alert "#{Volontariat.t('brainstorming_ideas.save.failed')}!"
       )  

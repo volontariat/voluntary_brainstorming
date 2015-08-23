@@ -35,7 +35,7 @@ Volontariat.BrainstormingIdeaArgumentComponent = Ember.Component.extend
         }
       ).success((data) =>
         if data.errors
-          alert "Something went wrong at saving argument: #{JSON.stringify(data.errors)}"
+          alert "#{Volontariat.t('arguments.save.failed')}: #{JSON.stringify(data.errors)}"
         else
           @sendAction 'leaveComposeArgumentModeAction'
           
@@ -44,20 +44,20 @@ Volontariat.BrainstormingIdeaArgumentComponent = Ember.Component.extend
             @set 'value', ''
           
           @sendAction 'reloadAction'
-          alert 'Successfully saved argument.'
+          alert Volontariat.t('arguments.save.successful')
       ).fail((data) =>
-        alert "Something went wrong at saving argument!"
+        alert "#{Volontariat.t('arguments.save.failed')}!"
       )  
       
     destroy: (id)  ->
       @sendAction 'setDirtyAction'
       
       if Volontariat.User.current() == undefined || @get('argument').user_id != Volontariat.User.current().id
-        alert 'Access denied!' + @get('argument').user_id + ',' + Volontariat.User.current().id
+        alert Volontariat.t('general.exceptions.access_denied') + @get('argument').user_id + ',' + Volontariat.User.current().id
       else
         $.ajax("/api/v1/arguments/#{id}", type: 'DELETE').done((data) =>
           @sendAction 'reloadAction'
-          alert 'Successfully removed argument.'
+          alert Volontariat.t('arguments.destroy.successful')
         ).fail((data) ->
-          Volontariat.alert 'Removing argument failed!'
+          alert Volontariat.t('arguments.destroy.failed')
         )  
