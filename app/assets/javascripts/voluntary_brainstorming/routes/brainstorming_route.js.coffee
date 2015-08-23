@@ -1,7 +1,24 @@
 Volontariat.BrainstormingRoute = Ember.Route.extend
   model: (params) ->
-    MessageBus.subscribe "/brainstormings/#{params.slug}", (data) ->
-      alert data
+    $('#reload_alert').slideUp()
+    
+    #@controllerFor('brainstorming').set 'reloading', false
+    
+    MessageBus.subscribe "/brainstormings/#{params.slug}", (data) =>
+      #if @controllerFor('brainstorming').get('reloading')
+      #  alert 'reloading still active'
+      #else if (
+      return if @controllerFor('brainstorming').get('dirty')
+      
+      if ( 
+        @controllerFor('brainstorming').get('newIdeaMode') || @controllerFor('brainstorming').get('ideaId') || 
+        @controllerFor('brainstorming').get('newArgumentIdeaId') || @controllerFor('brainstorming').get('argumentId')
+      )
+        Volontariat.reload_alert data.message
+      else
+        #@controllerFor('brainstorming').set 'reloading', true
+        @transitionTo 'no_data'
+        @transitionTo 'brainstorming', params.user_slug, params.slug 
   
     @controllerFor('brainstorming').set 'slug', params.slug
     @controllerFor('brainstorming').set 'userSlug', params.user_slug
@@ -14,3 +31,7 @@ Volontariat.BrainstormingRoute = Ember.Route.extend
     
     Ember.$.getJSON("/api/v1/brainstormings/#{params.slug}?user_slug=#{params.user_slug}").then (json) =>
       json.brainstorming
+      
+  closeReloadAlert: (->
+    $('#reload_alert').slideUp()
+  ).on('deactivate')

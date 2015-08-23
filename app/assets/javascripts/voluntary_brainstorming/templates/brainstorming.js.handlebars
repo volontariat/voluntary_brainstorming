@@ -1,3 +1,9 @@
+<div id="reload_alert" class="alert alert-info alert-dismissible" role="alert" style="display:none;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <span id="reload_alert_message"></span> 
+  <a {{action 'reload'}}><span class="glyphicon glyphicon-refresh"></span> Reload</a>
+</div>
+
 <h2>
   {{model.name}} 
   {{#link-to 'edit_brainstorming' model.user_slug model.slug}}
@@ -23,7 +29,7 @@
     <tr>
       <td>{{#link-to 'user_brainstormings' idea.user_slug 1}}{{idea.user_name}}{{/link-to}}</td>
       <td>
-        {{brainstorming-idea-cell selectedId=ideaId ideaId=idea.id ideaName=idea.name ideaText=idea.text leaveEditIdeaModeAction='leaveEditIdeaMode' reloadAction='reload'}}
+        {{brainstorming-idea-cell selectedId=ideaId ideaId=idea.id ideaName=idea.name ideaText=idea.text leaveEditIdeaModeAction='leaveEditIdeaMode' setDirtyAction='setDirty' reloadAction='reload'}}
       </td>
       <td>
         <a {{action 'editIdea' idea.id}} class="edit_brainstorming_idea_link">
@@ -38,9 +44,9 @@
         <table class="table">
           <tbody>
     {{#each idea.arguments as |argument|}}
-            {{brainstorming-idea-argument argument=argument.argument selectedId=argumentId id=argument.argument.id ideaId=idea.id topicName=argument.argument.topic_name value=argument.argument.value editAction='editArgument' leaveComposeArgumentModeAction='leaveComposeArgumentMode' reloadAction='reload'}}
+            {{brainstorming-idea-argument argument=argument.argument selectedId=argumentId id=argument.argument.id ideaId=idea.id topicName=argument.argument.topic_name value=argument.argument.value editAction='editArgument' leaveComposeArgumentModeAction='leaveComposeArgumentMode' setDirtyAction='setDirty' reloadAction='reload'}}
     {{/each}}        
-            {{brainstorming-idea-argument selectedNewArgumentIdeaId=newArgumentIdeaId ideaId=idea.id newAction="newArgument" leaveComposeArgumentModeAction='leaveComposeArgumentMode' reloadAction='reload'}}
+            {{brainstorming-idea-argument selectedNewArgumentIdeaId=newArgumentIdeaId ideaId=idea.id newAction="newArgument" leaveComposeArgumentModeAction='leaveComposeArgumentMode' setDirtyAction='setDirty' reloadAction='reload'}}
           </tbody>
         </table>
       </td>
@@ -54,7 +60,7 @@
 {{#if newIdeaMode}}
     <tr>
       <td>
-        {{brainstorming-idea-cell userSlug=userSlug slug=slug reloadAction='reload' leaveNewIdeaModeAction='leaveNewIdeaMode'}}
+        {{brainstorming-idea-cell userSlug=userSlug slug=slug reloadAction='reload' leaveNewIdeaModeAction='leaveNewIdeaMode' setDirtyAction='setDirty'}}
       </td>
       <td>
       </td>
