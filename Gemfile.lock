@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/volontariat/voluntary-ember_js.git
-  revision: dd55f29d7bd20051b91691e30c7f566ebd299221
+  revision: 966df0d96c0a8bf49ab1f7c551828e3f69d57e6e
   specs:
     voluntary-ember_js (0.0.1)
       ember-data-source (= 1.13.8)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/volontariat/voluntary.git
-  revision: 29ed3cbd02d48ff04554f8530a3a0360067428f9
+  revision: 72fb7b0c595a27b071054a9a1d3bc4746d7d630f
   specs:
     voluntary (0.5.0)
       active_model_serializers (~> 0.9.3)
