@@ -54,16 +54,17 @@
   {{/each}}
 {{else}}
     <tr>
-      <td colspan="2">{{t 'brainstormings.index.empty_collection'}}</td>
+      <td colspan="4">{{t 'brainstorming_ideas.index.empty_collection'}}</td>
     </tr>
 {{/if}}
 {{#if newIdeaMode}}
     <tr>
+      <td></td>
       <td>
         {{brainstorming-idea-cell userSlug=userSlug slug=slug reloadAction='reload' leaveNewIdeaModeAction='leaveNewIdeaMode' setDirtyAction='setDirty'}}
       </td>
-      <td>
-      </td>
+      <td></td>
+      <td></td>
     </tr>
 {{/if}}
   </tbody>
