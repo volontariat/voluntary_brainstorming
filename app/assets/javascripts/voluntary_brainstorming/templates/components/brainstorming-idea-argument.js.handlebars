@@ -74,6 +74,7 @@
     <a {{action 'destroy' argument.id}} class="remove_brainstorming_idea_argument_link">
       <span class="glyphicon glyphicon-remove"></span> {{t 'general.remove'}}
     </a>
+    {{like-or-dislike targetType='Argument' targetId=argument.id positive=argument.positive likes=argument.likes_count dislikes=argument.dislikes_count}}
   </td>
   {{else}}
   <td colspan="3">

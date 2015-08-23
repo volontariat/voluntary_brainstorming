@@ -10,6 +10,6 @@ class BrainstormingIdeaSerializer < ActiveModel::Serializer
   end
   
   def arguments
-    object.arguments.includes(:user, :topic).map{|a| ArgumentSerializer.new(a)}
+    object.arguments.map{|a| ArgumentSerializer.new(a)}
   end
 end

@@ -5,11 +5,25 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
   
   def index
     user = User.friendly.find params[:user_slug]
-    collection = user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas
+    collection = user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas.order('votes_count DESC').includes(:user)
     collection = collection.with_current_user_vote(current_user.id) if current_user  
+    collection = collection.to_a
+    
+    collection.each_with_index do |resource, index|
+      arguments = resource.arguments.includes(:user, :topic).to_a
+      argument_likes = Argument.likes_or_dislikes_for(current_user, arguments.map(&:id))
+      
+      arguments.map! do |argument|
+        argument.positive = argument_likes[argument.id].try(:positive)
+        argument
+      end
+      
+      resource.arguments = arguments
+      collection[index] = resource
+    end
     
     respond_with do |format|
-      format.json { render json: collection.order('votes_count DESC').includes(:user) }
+      format.json { render json: collection }
     end
   end
   
