@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :brainstormings, only: [:index, :create, :show, :update, :destroy]
       resources :brainstorming_ideas, only: [:index, :create, :update, :destroy]
+      resources :brainstorming_idea_votes, only: [:index, :create, :destroy]
     end
   end
 end

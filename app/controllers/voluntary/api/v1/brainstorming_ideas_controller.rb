@@ -5,8 +5,11 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
   
   def index
     user = User.friendly.find params[:user_slug]
+    collection = user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas
+    collection = collection.with_current_user_vote(current_user.id) if current_user  
+    
     respond_with do |format|
-      format.json { render json: user.brainstormings.friendly.find(params[:brainstorming_slug]).ideas.includes(:user) }
+      format.json { render json: collection.order('votes_count DESC').includes(:user) }
     end
   end
   

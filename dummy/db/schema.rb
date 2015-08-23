@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20150821102949) do
     t.datetime "updated_at"
   end
 
+  add_index "brainstorming_idea_votes", ["idea_id", "user_id"], name: "index_brainstorming_idea_votes_on_idea_id_and_user_id", unique: true, using: :btree
+  add_index "brainstorming_idea_votes", ["idea_id"], name: "index_brainstorming_idea_votes_on_idea_id", using: :btree
   add_index "brainstorming_idea_votes", ["user_id"], name: "index_brainstorming_idea_votes_on_user_id", using: :btree
 
   create_table "brainstorming_ideas", force: :cascade do |t|
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150821102949) do
     t.integer  "user_id",          limit: 4
     t.string   "name",             limit: 255
     t.text     "text",             limit: 65535
+    t.integer  "votes_count",      limit: 4,     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

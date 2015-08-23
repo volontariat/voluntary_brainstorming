@@ -21,6 +21,7 @@ class AddBrainstormingProduct < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.text :text
+      t.integer :votes_count, default: 0
       t.timestamps
     end
     
@@ -33,7 +34,9 @@ class AddBrainstormingProduct < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :brainstorming_idea_votes, :idea_id
     add_index :brainstorming_idea_votes, :user_id
+    add_index :brainstorming_idea_votes, [:idea_id, :user_id], unique: true
   end
   
   def down
