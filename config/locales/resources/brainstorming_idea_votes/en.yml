@@ -1,0 +1,18 @@
+en:
+  brainstorming_idea_votes:
+    create:
+      failed: Something went wrong at creating vote
+      successfully: Successfully voted idea.
+    destroy:
+      successful: Successfully removed vote.
+    model:
+      publish_create: A vote for an idea has been created
+      publish_destroy: A vote for an idea has been removed 
+    
+  activerecord:
+    errors:
+      models:
+        brainstorming_idea_vote:
+          attributes:
+            base: 
+              deletion_failed: Vote could not be removed!
