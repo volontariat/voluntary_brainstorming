@@ -21,6 +21,8 @@ Volontariat.BrainstormingIdeaArgumentComponent = Ember.Component.extend
       @sendAction 'leaveComposeArgumentModeAction'
       
     save: ->
+      @sendAction 'setDirtyAction'
+      
       $.ajax(
         type: if @get('id') then 'PUT' else 'POST'
         url: '/api/v1/arguments' + if @get('id') then "/#{@get('id')}" else '', 
@@ -48,6 +50,8 @@ Volontariat.BrainstormingIdeaArgumentComponent = Ember.Component.extend
       )  
       
     destroy: (id)  ->
+      @sendAction 'setDirtyAction'
+      
       if Volontariat.User.current() == undefined || @get('argument').user_id != Volontariat.User.current().id
         alert 'Access denied!' + @get('argument').user_id + ',' + Volontariat.User.current().id
       else

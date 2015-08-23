@@ -7,6 +7,8 @@ Volontariat.BrainstormingIdeaCellComponent = Ember.Component.extend
       @sendAction 'leaveEditIdeaModeAction'
     
     save: ->
+      @sendAction 'setDirtyAction'
+      
       $.ajax(
         type: if @get('ideaId') then 'PUT' else 'POST'
         url: '/api/v1/brainstorming_ideas' + if @get('ideaId') then "/#{@get('ideaId')}" else '', 
