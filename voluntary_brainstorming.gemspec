@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = VoluntaryBrainstorming::VERSION
   s.authors     = ['Mathias Gawlista']
   s.email       = ['gawlista@gmail.com']
-  s.homepage    = 'http://Volontari.at'
-  s.summary     = 'Draft: plugin for crowdsourcing management system voluntary about brainstorming of ideas and their pros / cons with voting.'
-  s.description = 'Draft: plugin for crowdsourcing management system voluntary about brainstorming of ideas and their pros / cons with voting.'
+  s.homepage    = 'http://Volontari.at/products/brainstorming'
+  s.summary     = 'Brainstorming plugin for crowdsourcing management system Voluntary.Software.'
+  s.description = 'Brainstorming plugin for #crowdsourcing gem voluntary: http://bit.ly/vb-0-0-1'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
