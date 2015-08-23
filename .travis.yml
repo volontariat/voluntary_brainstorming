@@ -6,6 +6,7 @@ rvm:
   - "2.2.0"
 services:
   - mongodb
+  - redis-server
 addons:
   code_climate:
     repo_token: f8a55aca00c1f2084f666415701ae3f70d6807848a311daaa2fcbcbecb848dd1
