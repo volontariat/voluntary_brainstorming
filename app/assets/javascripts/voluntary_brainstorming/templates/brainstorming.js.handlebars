@@ -29,7 +29,7 @@
   {{#each ideas as |idea|}}
     <tr>
       <td style="text-align:right;">
-        {{brainstorming-idea-vote ideaId=idea.id count=idea.votes_count vote=idea.user_id setDirtyAction="setDirty" reloadAction='reload'}}
+        {{brainstorming-idea-vote ideaId=idea.id count=idea.votes_count vote=idea.vote setDirtyAction="setDirty" reloadAction='reload'}}
       </td>
       <td>{{#link-to 'user_brainstormings' idea.user_slug 1}}{{idea.user_name}}{{/link-to}}</td>
       <td>
@@ -58,7 +58,7 @@
   {{/each}}
 {{else}}
     <tr>
-      <td colspan="4">{{t 'brainstorming_ideas.index.empty_collection'}}</td>
+      <td colspan="5">{{t 'brainstorming_ideas.index.empty_collection'}}</td>
     </tr>
 {{/if}}
 {{#if newIdeaMode}}

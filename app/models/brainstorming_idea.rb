@@ -6,7 +6,7 @@ class BrainstormingIdea < ActiveRecord::Base
   has_many :votes, class_name: 'BrainstormingIdeaVote', dependent: :destroy, foreign_key: 'idea_id'
   
   scope :with_current_user_vote, ->(user_id) do
-    select('brainstorming_ideas.*, brainstorming_idea_votes.user_id').joins(
+    select('brainstorming_ideas.*, brainstorming_idea_votes.user_id AS vote').joins(
       'LEFT JOIN brainstorming_idea_votes ON brainstorming_idea_votes.idea_id = brainstorming_ideas.id AND ' +
       "brainstorming_idea_votes.user_id = #{sanitize(user_id)}"
     )  
