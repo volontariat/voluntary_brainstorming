@@ -8,6 +8,10 @@ en:
       title: New Brainstorming
     edit:
       title: Edit Brainstorming
+    save:
+      failed: Something went wrong at saving brainstorming
+      successful: Successfully saved brainstorming.
+        
     create:
       title: Create Brainstorming
     update:

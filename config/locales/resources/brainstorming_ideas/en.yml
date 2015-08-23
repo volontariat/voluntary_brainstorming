@@ -11,6 +11,8 @@ en:
       title: Create Idea
     update:
       title: Update Idea
+    destroy:
+      failed: Removing idea failed!
     model:
       publish_create: A new idea has been added
       publish_update: An idea has been updated

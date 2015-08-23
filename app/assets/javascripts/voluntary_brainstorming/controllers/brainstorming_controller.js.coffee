@@ -18,12 +18,12 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
         data: { brainstorming: { name: $('#brainstorming_name').val(), text: $('#brainstorming_text').val() } }
       ).success((data) =>
         if data.errors
-          Volontariat.alert 'danger', "Something went wrong at saving brainstorming: #{JSON.stringify(data.errors)}"
+          Volontariat.alert 'danger', "#{Volontariat.t('brainstormings.save.failed')}: #{JSON.stringify(data.errors)}"
         else
           @transitionToRoute 'brainstorming', @get('userSlug'), data.brainstorming.slug
-          Volontariat.alert 'success', 'Successfully saved brainstorming.'
+          Volontariat.alert 'success', Volontariat.t('brainstormings.save.successful')
       ).fail((data) =>
-        Volontariat.alert 'danger', "Something went wrong at saving brainstorming!"
+        Volontariat.alert 'danger', "#{Volontariat.t('brainstormings.save.failed')}!"
       )
 
     newIdea: ->
@@ -69,9 +69,8 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
       else
         $.ajax("/api/v1/brainstorming_ideas/#{ideaId}", type: 'DELETE').done((data) =>
           @send 'reload'
-          alert 'Successfully removed idea.'
         ).fail((data) ->
-          alert 'Removing idea failed!'
+          alert Volontariat.t('brainstorming_ideas.destroy.failed')
         )  
       
     reload: ->
