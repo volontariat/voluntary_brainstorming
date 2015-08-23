@@ -13,6 +13,7 @@ module VoluntaryBrainstorming
             private
             
             def publish_create_to_brainstorming
+              return if Rails.env.test? || Rails.env.cucumber?
               return unless argumentable_type == 'BrainstormingIdea'
               
               MessageBus.publish(
@@ -22,6 +23,7 @@ module VoluntaryBrainstorming
             end
             
             def publish_update_to_brainstorming
+              return if Rails.env.test? || Rails.env.cucumber?
               return unless argumentable_type == 'BrainstormingIdea'
               
               MessageBus.publish(
@@ -31,6 +33,7 @@ module VoluntaryBrainstorming
             end
             
             def publish_destroy_to_brainstorming
+              return if Rails.env.test? || Rails.env.cucumber?
               return unless argumentable_type == 'BrainstormingIdea'
               
               MessageBus.publish(

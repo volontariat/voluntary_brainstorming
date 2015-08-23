@@ -18,6 +18,8 @@ class BrainstormingIdea < ActiveRecord::Base
   private
   
   def publish_create
+    return if Rails.env.test? || Rails.env.cucumber?
+    
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
       { message: "#{I18n.t('brainstorming_ideas.model.publish_create')}: #{name}" }
@@ -25,6 +27,8 @@ class BrainstormingIdea < ActiveRecord::Base
   end
   
   def publish_update
+    return if Rails.env.test? || Rails.env.cucumber?
+    
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
       { message: "#{I18n.t('brainstorming_ideas.model.publish_update')}: #{name}" }
@@ -32,6 +36,8 @@ class BrainstormingIdea < ActiveRecord::Base
   end
   
   def publish_destroy
+    return if Rails.env.test? || Rails.env.cucumber?
+    
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
       { message: "#{I18n.t('brainstorming_ideas.model.publish_destroy')}: #{name}" }
