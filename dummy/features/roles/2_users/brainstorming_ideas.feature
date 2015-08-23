@@ -21,4 +21,5 @@ Feature: Manage brainstorming ideas
     Then I should see "Successfully saved idea."
     And I should see "Dummy idea2"
     When I click the remove link of the first idea
+    And I confirm the following alert
     Then I should see "No ideas found."
