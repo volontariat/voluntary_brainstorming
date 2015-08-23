@@ -11,11 +11,30 @@ class BrainstormingIdea < ActiveRecord::Base
   
   attr_accessible :brainstorming_id, :name, :text
   
-  after_save :publish
+  after_create :publish_create
+  after_update :publish_update
+  after_destroy :publish_destroy
   
   private
   
-  def publish
-    MessageBus.publish("/brainstormings/#{brainstorming.slug}", to_json)
+  def publish_create
+    MessageBus.publish(
+      "/brainstormings/#{brainstorming.slug}", 
+      { message: "#{I18n.t('brainstorming_ideas.model.publish_create')}: #{name}" }
+    )
+  end
+  
+  def publish_update
+    MessageBus.publish(
+      "/brainstormings/#{brainstorming.slug}", 
+      { message: "#{I18n.t('brainstorming_ideas.model.publish_update')}: #{name}" }
+    )
+  end
+  
+  def publish_destroy
+    MessageBus.publish(
+      "/brainstormings/#{brainstorming.slug}", 
+      { message: "#{I18n.t('brainstorming_ideas.model.publish_destroy')}: #{name}" }
+    )
   end
 end

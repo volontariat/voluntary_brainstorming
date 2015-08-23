@@ -11,6 +11,7 @@ module VoluntaryBrainstorming
     
     config.to_prepare do
       User.send :include, VoluntaryBrainstorming::Concerns::Model::User::HasBrainstormings
+      Argument.send :include, VoluntaryBrainstorming::Concerns::Model::Argument::PublishesChangesToBrainstorming
     end
   end
 end

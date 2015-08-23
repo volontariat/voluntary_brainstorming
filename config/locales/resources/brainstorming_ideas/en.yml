@@ -8,7 +8,11 @@ en:
       title: Create Idea
     update:
       title: Update Idea
-        
+    model:
+      publish_create: A new idea has been added
+      publish_update: An idea has been updated
+      publish_destroy: An idea has been removed 
+    
   activerecord:
     errors:
       models:
