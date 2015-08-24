@@ -8,7 +8,7 @@ Volontariat.BrainstormingRoute = Ember.Route.extend
       #if @controllerFor('brainstorming').get('reloading')
       #  alert 'reloading still active'
       #else if (
-      return if @controllerFor('brainstorming').get('dirty')
+      return if Volontariat.User.current() != undefined && data.author_id == Volontariat.User.current().id
       
       if ( 
         @controllerFor('brainstorming').get('newIdeaMode') || @controllerFor('brainstorming').get('ideaId') || 

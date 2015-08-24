@@ -17,7 +17,7 @@ class BrainstormingIdeaVote < ActiveRecord::Base
     
     MessageBus.publish(
       "/brainstormings/#{idea.brainstorming.slug}", 
-      { message: "#{I18n.t('brainstorming_idea_votes.model.publish_create')}: +1 #{idea.name} by #{user.name}" }
+      { author_id: user_id, message: "#{I18n.t('brainstorming_idea_votes.model.publish_create')}: +1 #{idea.name} by #{user.name}" }
     )
   end
   
@@ -26,7 +26,7 @@ class BrainstormingIdeaVote < ActiveRecord::Base
     
     MessageBus.publish(
       "/brainstormings/#{idea.brainstorming.slug}", 
-      { message: "#{I18n.t('brainstorming_idea_votes.model.publish_destroy')}: -1 #{idea.name} by #{user.name}" }
+      { author_id: user_id, message: "#{I18n.t('brainstorming_idea_votes.model.publish_destroy')}: -1 #{idea.name} by #{user.name}" }
     )
   end
 end

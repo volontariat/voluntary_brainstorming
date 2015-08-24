@@ -29,7 +29,7 @@ class BrainstormingIdea < ActiveRecord::Base
     
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
-      { message: "#{I18n.t('brainstorming_ideas.model.publish_create')}: #{name}" }
+      { author_id: user_id, message: "#{I18n.t('brainstorming_ideas.model.publish_create')}: #{name}" }
     )
   end
   
@@ -38,7 +38,7 @@ class BrainstormingIdea < ActiveRecord::Base
     
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
-      { message: "#{I18n.t('brainstorming_ideas.model.publish_update')}: #{name}" }
+      { author_id: user_id, message: "#{I18n.t('brainstorming_ideas.model.publish_update')}: #{name}" }
     )
   end
   
@@ -47,7 +47,7 @@ class BrainstormingIdea < ActiveRecord::Base
     
     MessageBus.publish(
       "/brainstormings/#{brainstorming.slug}", 
-      { message: "#{I18n.t('brainstorming_ideas.model.publish_destroy')}: #{name}" }
+      { author_id: user_id, message: "#{I18n.t('brainstorming_ideas.model.publish_destroy')}: #{name}" }
     )
   end
 end

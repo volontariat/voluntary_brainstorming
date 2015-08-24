@@ -9,8 +9,6 @@ Volontariat.BrainstormingIdeaVoteComponent = Ember.Component.extend
       @set 'count', @get('count') + 1
       @set 'vote', true
       
-      @sendAction 'setDirtyAction'
-      
       $.ajax(type: 'POST', url: '/api/v1/brainstorming_idea_votes', data: { idea_id: @get('ideaId') }).success((data) =>
         if data.errors
           alert "#{Volontariat.t('brainstorming_idea_votes.create.failed')}: #{JSON.stringify(data.errors)}"
@@ -33,8 +31,6 @@ Volontariat.BrainstormingIdeaVoteComponent = Ember.Component.extend
       
       @set 'count', @get('count') - 1
       @set 'vote', false
-    
-      @sendAction 'setDirtyAction'
       
       $.ajax("/api/v1/brainstorming_idea_votes/0", type: 'DELETE', data: { idea_id: @get('ideaId') }).done((data) =>
         @sendAction 'reloadAction'

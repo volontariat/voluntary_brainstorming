@@ -5,12 +5,6 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
   
   actions:
     
-    setDirty: ->
-      @set 'dirty', true
-      setTimeout (=>
-        @set 'dirty', false
-      ), 3000
-    
     save: ->
       $.ajax(
         type: if @get('slug') then 'PUT' else 'POST'
@@ -62,8 +56,6 @@ Volontariat.BrainstormingController = Ember.Controller.extend(Volontariat.Destro
       @set 'argumentId', null
       
     destroyIdea: (ideaId, userId)  ->
-      @send 'setDirty'
-      
       if Volontariat.User.current() == undefined || userId != Volontariat.User.current().id
         alert 'Access denied!'
       else

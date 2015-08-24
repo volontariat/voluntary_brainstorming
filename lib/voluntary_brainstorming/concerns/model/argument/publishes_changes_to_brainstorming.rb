@@ -18,7 +18,7 @@ module VoluntaryBrainstorming
               
               MessageBus.publish(
                 "/brainstormings/#{argumentable.brainstorming.slug}", 
-                { message: "#{I18n.t('arguments.model.publish_create_to_brainstorming')}: #{topic.name}" }
+                { author_id: user_id, message: "#{I18n.t('arguments.model.publish_create_to_brainstorming')}: #{topic.name}" }
               )
             end
             
@@ -28,7 +28,7 @@ module VoluntaryBrainstorming
               
               MessageBus.publish(
                 "/brainstormings/#{argumentable.brainstorming.slug}", 
-                { message: "#{I18n.t('arguments.model.publish_update_to_brainstorming')}: #{topic.name}" }
+                { author_id: user_id, message: "#{I18n.t('arguments.model.publish_update_to_brainstorming')}: #{topic.name}" }
               )
             end
             
@@ -38,7 +38,7 @@ module VoluntaryBrainstorming
               
               MessageBus.publish(
                 "/brainstormings/#{argumentable.brainstorming.slug}", 
-                { message: "#{I18n.t('arguments.model.publish_destroy_to_brainstorming')}: #{topic.name}" }
+                { author_id: user_id, message: "#{I18n.t('arguments.model.publish_destroy_to_brainstorming')}: #{topic.name}" }
               )
             end
           end
