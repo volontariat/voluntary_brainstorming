@@ -11,11 +11,14 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
     
     collection.each_with_index do |resource, index|
       arguments = resource.arguments.includes(:user, :topic).to_a
-      argument_likes = Argument.likes_or_dislikes_for(current_user, arguments.map(&:id))
       
-      arguments.map! do |argument|
-        argument.positive = argument_likes[argument.id].try(:positive)
-        argument
+      if current_user
+        argument_likes = Argument.likes_or_dislikes_for(current_user, arguments.map(&:id))
+        
+        arguments.map! do |argument|
+          argument.positive = argument_likes[argument.id].try(:positive)
+          argument
+        end
       end
       
       resource.arguments = arguments
@@ -33,7 +36,11 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
     
     respond_to do |format|
       format.json do
-        render json: resource.persisted? ? resource : { errors: resource.errors.to_hash }
+        if resource.persisted?
+          render json: {}
+        else 
+          render json: { errors: resource.errors.to_hash }
+        end
       end
     end
   end
@@ -44,7 +51,11 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
     
     respond_to do |format|
       format.json do
-        render json: resource.valid? ? resource : { errors: resource.errors.to_hash }
+        if resource.valid?
+          render json: {}
+        else 
+          render json: { errors: resource.errors.to_hash }
+        end
       end
     end
   end
@@ -55,10 +66,10 @@ class Voluntary::Api::V1::BrainstormingIdeasController < ActionController::Base
     
     respond_to do |format|
       format.json do
-        render json: if resource.persisted?
-          { error: I18n.t('activerecord.errors.models.brainstorming_idea.attributes.base.deletion_failed') }
+        if resource.persisted?
+          render json: { error: I18n.t('activerecord.errors.models.brainstorming_idea.attributes.base.deletion_failed') }
         else
-          {}
+          render json: {}
         end
       end
     end
