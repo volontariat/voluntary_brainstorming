@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: git://github.com/volontariat/voluntary-ember_js.git
-  revision: 966df0d96c0a8bf49ab1f7c551828e3f69d57e6e
+  revision: 5343811ba0bdaa9c0c4991ca25cdb957ef685814
   specs:
-    voluntary-ember_js (0.0.1)
+    voluntary-ember_js (0.0.2)
       ember-data-source (= 1.13.8)
       ember-rails (~> 0.19.0)
       ember-source (= 1.13.8)
@@ -19,9 +19,9 @@ GIT
 
 GIT
   remote: git://github.com/volontariat/voluntary.git
-  revision: 72fb7b0c595a27b071054a9a1d3bc4746d7d630f
+  revision: e70b3af7fd1619d396c7161bbb06777b170a30a3
   specs:
-    voluntary (0.5.0)
+    voluntary (0.5.1)
       active_model_serializers (~> 0.9.3)
       activerecord-deprecated_finders (~> 1.0.3)
       activerecord-import (~> 0.4.1)
@@ -107,7 +107,7 @@ GIT
 PATH
   remote: /Users/gawlim/workspace/voluntary/voluntary_brainstorming
   specs:
-    voluntary_brainstorming (0.0.1)
+    voluntary_brainstorming (0.0.2)
       message_bus (~> 1.0.16)
       voluntary (~> 0.5.0)
 
