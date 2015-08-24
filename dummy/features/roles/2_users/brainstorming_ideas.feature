@@ -12,13 +12,13 @@ Feature: Manage brainstorming ideas
     And I click the new idea link
     And I fill in "Name" with "Dummy idea"
     And I press "Create Idea"
-    Then I should see "Successfully saved idea."
+    #Then I should see an alert telling me that "Successfully saved idea."
     And I should not see "No ideas found." 
     And I should see "Dummy idea"
     When I click the edit link of the first idea
     And I fill in "Name" with "Dummy idea2"
     And I press "Update Idea"
-    Then I should see "Successfully saved idea."
+    Then I should see an alert telling me that "Successfully saved idea."
     And I should see "Dummy idea2"
     When I click the remove link of the first idea
     And I confirm the following alert
