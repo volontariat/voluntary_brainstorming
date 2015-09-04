@@ -10,3 +10,7 @@
 * [#5](https://github.com/volontariat/voluntary_brainstorming/issues/5) Manage idea arguments enhancement
 * [#4](https://github.com/volontariat/voluntary_brainstorming/issues/4) Manage Ideas enhancement
 * [#3](https://github.com/volontariat/voluntary_brainstorming/issues/3) Manage Brainstormings enhancement
+
+## 0.0.1 (March 14, 2015) ##
+
+* Initial version.
