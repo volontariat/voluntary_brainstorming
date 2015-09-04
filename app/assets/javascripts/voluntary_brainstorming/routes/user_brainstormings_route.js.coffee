@@ -8,7 +8,7 @@ Volontariat.UserBrainstormingsRoute = Ember.Route.extend
       @controllerFor('user_brainstormings').set 'userName', user.get('name')
     
     Ember.$.getJSON(
-      "/api/v1/brainstormings.json?user_slug=#{params.user_slug}"
+      "/api/v1/brainstormings.json?user_slug=#{params.user_slug}&page=#{params.page}"
     ).then (json) =>
       @controllerFor('user_brainstormings').set 'metadata', json.meta
       @controllerFor('user_brainstormings').set 'brainstormings', json.brainstormings
