@@ -1,23 +1,23 @@
 <nav>
   <ul class="pagination">
-  {{#if controller.showFirstPageLink}}
+  {{#if showFirstPageLink}}
 	  <li class="first"><a {{action 'goToPage' 1}}>&laquo; First</a></li>
 	{{/if}}
 	
-	{{#if controller.showPreviousPageLink}}
-  	<li class="prev"><a {{action 'goToPage' controller.previousPage}}>&laquo; Previous</a></li>
+	{{#if showPreviousPageLink}}
+  	<li class="prev"><a {{action 'goToPage' previousPage}}>&laquo; Previous</a></li>
 	{{/if}}
 	
-	{{#each controller.pages as |currentPage|}}
+	{{#each pages as |currentPage|}}
 	  <li class="{{if currentPage.isCurrent 'active'}}"><a href="#" {{action 'goToPage' currentPage.number}}>{{currentPage.number}}</a></li>
 	{{/each}}
 	
-	{{#if controller.showNextPageLink}}
-  	<li class="next_page"><a {{action 'goToPage' controller.nextPage}}>Next &raquo;</a></li>
+	{{#if showNextPageLink}}
+  	<li class="next_page"><a {{action 'goToPage' nextPage}}>Next &raquo;</a></li>
 	{{/if}}
 	
-	{{#if controller.showLastPageLink}}
-  	<li class="last next"><a {{action 'goToPage' controller.totalPages}}>Last &raquo;</a></li>
+	{{#if showLastPageLink}}
+  	<li class="last next"><a {{action 'goToPage' totalPages}}>Last &raquo;</a></li>
 	{{/if}}
 	</ul>
 </nav>
